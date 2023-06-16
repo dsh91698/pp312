@@ -8,13 +8,12 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-
+@Transactional
 @Repository
 public class UserDaoImp implements UserDao {
     @PersistenceContext
     private EntityManager entityManager;
 
-    @Transactional
     @Override
     public void addUser(User user) {
         entityManager.persist(user);
@@ -32,13 +31,11 @@ public class UserDaoImp implements UserDao {
         return query.getResultList();
     }
 
-    @Transactional
     @Override
     public void updateUser(User userUpdated) {
         entityManager.merge(userUpdated);
     }
 
-    @Transactional
     @Override
     public void deleteById(Long id) {
         User user = getById(id);
