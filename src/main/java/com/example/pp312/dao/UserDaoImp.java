@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-@Transactional
+//@Transactional
 @Repository
 public class UserDaoImp implements UserDao {
     @PersistenceContext
